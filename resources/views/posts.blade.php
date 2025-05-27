@@ -1,8 +1,11 @@
 <x-layout>
     <h1 class="text-3xl text-center my-4 mb-10">Postingan Terbaru</h1>
     @auth
-        <p class="my-4">
-            <a href="{{ route('post.make') }}" class="p-2 px-3 bg-yellow-300 rounded-sm">Buat Post</a>
+        <p class="my-4 p-2 px-3 bg-yellow-300 rounded-sm flex w-fit gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="size-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <a href="{{ route('post.make') }}">Buat Post</a>
         </p>
     @endauth
     @if ($posts->isEmpty())
