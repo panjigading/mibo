@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="border-b mb-10">
-        <nav class="mx-auto flex max-w-5xl items-center justify-between p-6">
+        <nav class="mx-auto flex max-w-5xl items-center justify-between p-5">
             <a href="/" class="text-2xl underline underline-offset-3 decoration-yellow-300">mibo</a>
             <menu class="flex gap-3">
                 <li><a href="/">Beranda</a></li>
