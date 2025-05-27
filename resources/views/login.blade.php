@@ -2,7 +2,7 @@
     <h1 class="text-center text-3xl block mb-8">Log In</h1>
     <form action="{{ route('login') }}" method="POST" class="max-w-xl mx-auto grid gap-4">
         @error('username')
-        <p class="italic">Pengguna dengan username ini tidak ada di website ini</p>
+        <p class="italic">Username atau password salah</p>
         @enderror
         @csrf
         <label for="username">Username</label>
