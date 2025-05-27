@@ -23,7 +23,10 @@
             </menu>
             <menu class="flex gap-3">
                 @auth
-                <li><a href="{{ route('user.account') }}">Akun</a></li>
+                <li class="flex gap-3 items-center">
+                    <img src="{{ Storage::url(request()->user()->profile_picture) }}" class="max-w-7 max-h-7 rounded-full">
+                    <a href="{{ route('user.account') }}" class="underline">u/{{ request()->user()->username }}</a>
+                </li>
                 @else
                 <li><a class="p-2 px-3 bg-black text-white rounded-sm" href="{{ route('login') }}">Log In</a></li>
                 <li><a class="p-2 px-3 bg-yellow-300 rounded-sm" href="{{ route('signup') }}">Sign Up</a></li>
