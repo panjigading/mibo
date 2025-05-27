@@ -14,10 +14,11 @@
         <ul class="border border-b-0">
             @foreach ($posts as $post)
             <li class="p-6 border-b">
-                <p class="mb-4">
+                <p class="mb-2">
                     <a class="underline" href="{{ route('user', ['username' => $post->username]) }}">u/{{ $post->username }}</a>
                     - {{ $post->display_name }}
                 </p>
+                <h2 class="mb-4"><a class="font-semibold" href="{{ route('post', ['id' => $post->id]) }}"">{{ $post->title }}</a></h2>
                 <div class="flex gap-4">
                     @if ($post->image)
                     <div  class="h-full max-w-30">
@@ -25,7 +26,6 @@
                     </div>
                     @endif
                     <div class="flex-1">
-                        <h2 class="mb-2"><a class="font-semibold" href="{{ route('post', ['id' => $post->id]) }}"">{{ $post->title }}</a></h2>
                         <p>{{ Str::limit($post->body, 200, '...', preserveWords: true) }}</p>
                     </div>
                 </div>

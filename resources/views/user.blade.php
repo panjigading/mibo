@@ -23,8 +23,17 @@
                     <a class="underline" href="{{ route('user', ['username' => $user->username]) }}">u/{{ $user->username }}</a>
                     - {{ $user->display_name }}
                 </p>
-                <h2 class="mb-2"><a class="font-semibold" href="{{ route('post', ['id' => $post->id]) }}"">{{ $post->title }}</a></h2>
-                <p>{{ Str::limit($post->body, 200, '...', preserveWords: true) }}</p>
+                <h2 class="mb-4"><a class="font-semibold" href="{{ route('post', ['id' => $post->id]) }}"">{{ $post->title }}</a></h2>
+                <div class="flex gap-4">
+                    @if ($post->image)
+                    <div  class="h-full max-w-30">
+                        <img src="{{ Storage::url($post->image) }}" class="rounded">
+                    </div>
+                    @endif
+                    <div class="flex-1">
+                        <p>{{ Str::limit($post->body, 200, '...', preserveWords: true) }}</p>
+                    </div>
+                </div>
             </li>
         @endforeach
         @endif
