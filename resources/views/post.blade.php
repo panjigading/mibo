@@ -64,6 +64,9 @@
     @if ($comments)
         <ul class="border border-b-0 mt-6">
         @foreach ($comments as $comment)
+            @if ($comment->trashed())
+                <p class="text-gray-400 italic">(komen dihapus)</p>
+            @else
             <li class="p-4 border-b">
                 <p class="mb-4">
                     <a href="{{ route('user', ['username' => $comment->username]) }}" class="underline">u/{{ $comment->username }}</a>
@@ -73,6 +76,7 @@
                 <p>{{ $paragraph }}</p>
                 @endforeach
             </li>
+            @endif
         @endforeach
         </ul>
     @else
