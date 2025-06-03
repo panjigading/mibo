@@ -68,10 +68,15 @@
                 <p class="text-gray-400 italic">(komen dihapus)</p>
             @else
             <li class="p-4 border-b">
-                <p class="mb-4">
-                    <a href="{{ route('user', ['username' => $comment->username]) }}" class="underline">u/{{ $comment->username }}</a>
-                    - {{ $comment->display_name }}
-                </p>
+                <div class="flex justify-between mb-4">
+                    <p>
+                        <a href="{{ route('user', ['username' => $comment->username]) }}" class="underline">u/{{ $comment->username }}</a>
+                        - {{ $comment->display_name }}
+                    </p>
+                    @if (Gate::allows('delete-comment', $comment))
+                    <a href="{{ route('comment.remove', ['post_id' => $post->id, 'id' => $comment->id]) }}" class="p-1 px-4 border rounded-sm mr-4 border-red-500 text-red-500">Hapus</a>
+                    @endif
+                </div>
                 @foreach (explode(PHP_EOL, $comment->body) as $paragraph)
                 <p>{{ $paragraph }}</p>
                 @endforeach

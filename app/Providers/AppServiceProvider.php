@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Support\Facades\Gate;
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('modify-post', function (User $user, Post $post) {
             return $user->id === $post->user_id;
+        });
+
+        Gate::define('delete-comment', function (User $user, Comment $comment) {
+            return $user->id === $comment->user_id;
         });
     }
 }

@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/p/{post_id}/komentar', [CommentController::class, 'add'])
         ->name('comment.add');
-    Route::get('/p/{}/hapus_komentar/{id}', [CommentController::class, 'remove'])
+    Route::get('/p/{post_id}/hapus_komentar/{id}', [CommentController::class, 'remove'])
         ->name('comment.remove');
 
     Route::get('/p/{post_id}/like', [LikeDislikeController::class, 'like'])
